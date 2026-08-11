@@ -1,11 +1,18 @@
 package com.kareem.pcInventory.service;
 
-import com.kareem.pcInventory.entity.Computer;
+import com.kareem.pcInventory.dto.response.ComputerResponse;
+import com.kareem.pcInventory.mapping.ComputerMapping;
 import com.kareem.pcInventory.repository.ComputerRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
+@Service
 public class ComputerService {
+
+    private final ComputerMapping computerMapping=new ComputerMapping();
 
     private final ComputerRepository computerRepository;
 
@@ -14,12 +21,12 @@ public class ComputerService {
     }
 
 
-    public List<Computer> findAll() {
-        return computerRepository.findAll();
-    }
+    @Transactional(readOnly = true)
+    public Page<ComputerResponse> getAllComputers(int pageNo , int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
 
-    public Computer findById(Long id) {
-        return computerRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("Computer not found"));
+
+        return computerRepository.findAll(pageable).map(computerMapping::mapComputersToComputerResponse);
+
     }
 }

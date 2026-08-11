@@ -1,0 +1,18 @@
+:root {
+  --primary: #011d45;
+  --secondary: #0156ff86;
+  --third: #2858c8;
+
+  --success: #16b957;
+  --success-light: #b4f7c694;
+
+  --warning: #e2aa02;
+  --warning-light: rgba(240, 237, 178, 0.9);
+
+  --danger: #ef1015;
+  --danger-light: rgba(252, 224, 224, 0.695);
+
+  --white: white;
+
+  --gray: rgba(117, 115, 114, 0.185);
+}

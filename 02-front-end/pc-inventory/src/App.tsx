@@ -1,10 +1,24 @@
 import "./App.css";
-import { NavigationBar } from "./layout/navigation-bars/navigationBar";
+import { ComputerPage } from "./layout/computers/ComputerPage";
+
+import { Header } from "./layout/header/Header";
+
+import { SideBar } from "./layout/sideBar/SideBar";
 
 function App() {
   return (
     <>
-      <NavigationBar />
+      <div className="d-flex">
+        <SideBar />
+
+        <div className="flex-fill ">
+          <Header />
+
+          <div className="container-fluid ">
+            <ComputerPage />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

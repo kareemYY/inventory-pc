@@ -1,0 +1,59 @@
+.sideBar-props-header {
+  background-color: var(--primary);
+  width: 260px;
+  height: 100vh;
+  border-radius: 0 2rem 0 0;
+}
+
+.main_icon_style {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-icon-pc {
+  font-size: 28px;
+  color: var(--white);
+  background-color: var(--third);
+  vertical-align: middle;
+  border-radius: 50%;
+
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.sideBar-props {
+  gap: 12px;
+}
+.sideBar-props .nav-link {
+  color: var(--white);
+  border-radius: 2rem 0 0 2rem;
+  transition: all 0.3s ease;
+}
+
+.sideBar-props .nav-link:hover {
+  background-color: var(--third);
+  color: var(--white);
+}
+.icon-props {
+  font-size: 20px;
+  color: inherit;
+  vertical-align: middle;
+  margin-right: 10px;
+
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.main-header {
+  height: 43px;
+  width: 260px;
+}

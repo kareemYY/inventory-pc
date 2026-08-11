@@ -1,0 +1,137 @@
+.stats-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon {
+  color: var(--success);
+  vertical-align: auto;
+  border-radius: 50%;
+  font-size: 50px;
+
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.maintenanceIcon {
+  color: var(--white);
+  vertical-align: middle;
+  background-color: var(--warning);
+  border-radius: 50%;
+  font-size: 40px;
+
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.computer-icon {
+  color: var(--white);
+  vertical-align: auto;
+  background-color: var(--third);
+  border-radius: 50%;
+  font-size: 38px;
+
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.out_of_serviceIcon {
+  color: var(--danger);
+  vertical-align: auto;
+  border-radius: 50%;
+  font-size: 50px;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 300,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.card-statistics {
+  width: 12rem;
+  font-size: 0.8rem;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.card-statistics-mobile {
+  width: 10rem;
+  font-size: 0.75rem;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.card_info_icon {
+  font-size: 17px;
+  border-radius: 10%;
+
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.computer-logo-card {
+  font-size: 22px;
+  color: var(--white);
+  border-radius: 10%;
+
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+.status-badge-ACTIVE {
+  background-color: var(--success);
+}
+.status-badge-MAINTENANCE {
+  background-color: var(--warning);
+}
+.status-badge-OUT_OF_SERVICE {
+  background-color: var(--danger);
+}
+
+.circle-status {
+  color: var(--white);
+  border-radius: 10%;
+  font-size: 10px;
+
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+.card-details {
+  width: 17rem;
+  font-size: 0.8rem;
+  border-radius: 5%;
+}
+
+.model-div {
+  background-color: var(--primary);
+}
+.button-details {
+  color: var(--white);
+  background-color: var(--third);
+}
+
+.page_back_ground {
+  border-radius: 2rem 2rem 2rem 2rem;
+  background-color: var(--gray);
+}
+.add-fillter-button {
+  width: 10rem;
+}
