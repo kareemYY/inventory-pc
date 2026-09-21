@@ -129,9 +129,31 @@
 }
 
 .page_back_ground {
-  border-radius: 2rem 2rem 2rem 2rem;
+  border-radius: 1rem 1rem 1rem 1rem;
   background-color: var(--gray);
+  height: 90vh;
 }
 .add-fillter-button {
   width: 10rem;
+}
+
+.back_ground_working {
+  border-radius: 1rem 1rem 1rem 1rem;
+  background-color: var(--success-light);
+}
+.main_computer_details {
+  border-radius: 3rem 3rem 3rem 3rem;
+  overflow: hidden;
+}
+
+.card-infomation {
+  width: 24vh;
+  height: 9vh;
+}
+.information_area {
+  height: 40vh;
+}
+
+.main_information {
+  height: 20vh;
 }

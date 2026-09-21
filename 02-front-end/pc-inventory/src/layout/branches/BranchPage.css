@@ -1,0 +1,77 @@
+.card-props {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--third);
+  vertical-align: auto;
+  background-color: var(--white);
+  border-radius: 50%;
+  font-size: 45px;
+
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.card-statistics-branch {
+  width: 13rem;
+  font-size: 0.8rem;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.card-statistics-mobile-branch {
+  width: 10rem;
+  font-size: 0.75rem;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.page_back_ground {
+  border-radius: 1rem 1rem 1rem 1rem;
+  background-color: var(--gray);
+  height: 90vh;
+}
+
+.back_ground_search {
+  background-color: var(--white);
+}
+
+.thumb-up {
+  color: green;
+  vertical-align: auto;
+  border-radius: 50%;
+  font-size: 30px;
+
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 200,
+    "GRAD" 0,
+    "opsz" 48;
+}
+.thumb-down {
+  color: red;
+  vertical-align: auto;
+  border-radius: 50%;
+  font-size: 30px;
+
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 200,
+    "GRAD" 0,
+    "opsz" 48;
+}
+.table-scroll-container {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.table-scroll-container thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}

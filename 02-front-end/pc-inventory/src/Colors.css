@@ -2,6 +2,7 @@
   --primary: #011d45;
   --secondary: #0156ff86;
   --third: #2858c8;
+  --more-light: #578affd4;
 
   --success: #16b957;
   --success-light: #b4f7c694;
@@ -14,5 +15,7 @@
 
   --white: white;
 
-  --gray: rgba(117, 115, 114, 0.185);
+  --gray: rgba(140, 140, 138, 0.185);
+
+  --background-light: rgba(176, 204, 240, 0.695);
 }

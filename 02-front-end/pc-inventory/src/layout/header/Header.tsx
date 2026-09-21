@@ -1,9 +1,21 @@
+import { useState } from "react";
 import "./headerStyle/HeaderStyle.css";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const [searchInput, setSearchInput] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (!searchInput.trim()) return;
+
+    navigate(`/computers?search=${encodeURIComponent(searchInput)}`);
+    setSearchInput("");
+  };
   return (
     <>
-      <div className="mt-1  header-container d-flex align-items-center justify-content-between">
+      <div className="mt-2  header-container d-flex align-items-center justify-content-between min-vh-9">
         <div className="d-flex ">
           <div className="d-block d-lg-none">
             <button
@@ -23,6 +35,13 @@ export const Header = () => {
               search
             </span>
             <input
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
               type="text"
               className="form-control background"
               placeholder="Search...."
@@ -33,12 +52,16 @@ export const Header = () => {
         </div>
 
         <div className=" d-flex align-items-center gap-2 ">
-          <span className="material-symbols-outlined header-icon px-2">
-            notifications
-          </span>
-          <span className="material-symbols-outlined header-icon">
-            dark_mode
-          </span>
+          <button className="btn p-0">
+            <span className="material-symbols-outlined header-icon px-2">
+              notifications
+            </span>
+          </button>
+          <button className="btn  p-0">
+            <span className="material-symbols-outlined header-icon">
+              dark_mode
+            </span>
+          </button>
           <button
             type="button"
             className="btn btn-outline-secondary btn-props "
@@ -59,6 +82,13 @@ export const Header = () => {
             search
           </span>
           <input
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
             type="text"
             className="form-control background"
             placeholder="Search...."

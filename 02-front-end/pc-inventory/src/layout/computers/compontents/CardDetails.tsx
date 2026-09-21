@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { ComputerModel } from "../../../models/ComputerModel";
 import "../ComputerPage.css";
 
@@ -19,9 +20,6 @@ export const CardDetails = (props: ComputerModel) => {
   const udateEmployeeName = (employee: string | null) => {
     if (employee === null) {
       return `Without Employee`;
-    }
-    if (employee.length > 15) {
-      return `${employee.substring(0, 12)}...`;
     } else {
       return employee;
     }
@@ -41,14 +39,14 @@ export const CardDetails = (props: ComputerModel) => {
     }
   };
   return (
-    <div className="card shadow  rounded ">
+    <div className="card shadow  rounded m-0 ">
       <div className="d-flex align-items-center justify-content-between rounded  model-div px-2 ">
-        <div className="flex-grow-1  d-flex align-items-center">
+        <div className=" flex-grow-1  d-flex align-items-center">
           <span className={`material-symbols-outlined computer-logo-card`}>
             desktop_windows
           </span>
           <p className="my-1 " style={{ color: "white" }}>
-            {props.model || "HP g6 600"}
+            {props.model}
           </p>
         </div>
         <div
@@ -75,7 +73,7 @@ export const CardDetails = (props: ComputerModel) => {
             <p>Asset Code: </p>
           </div>
           <div>
-            <p>{props.assetCode}</p>
+            <p>{`TW_PC_${props.assetCode}`}</p>
           </div>
         </div>
         <div className="d-flex justify-content-between">
@@ -83,7 +81,7 @@ export const CardDetails = (props: ComputerModel) => {
             <span className="material-symbols-outlined card_info_icon">
               person
             </span>
-            <p>Employee Name : </p>
+            <p>Employee: </p>
           </div>
           <div>
             <p>{udateEmployeeName(props.employeeName)}</p>
@@ -138,14 +136,14 @@ export const CardDetails = (props: ComputerModel) => {
           </div>
         </div>
       </div>
-
-      <button
-        className="btn button-details d-flex justify-content-center align-items-center"
+      <Link
+        to={`/computers/${props.id}`}
+        className="btn button-details   d-flex justify-content-center align-items-center gap-2"
         type="button"
       >
         View Full Details
         <span className="material-symbols-outlined">arrow_right_alt</span>
-      </button>
+      </Link>
     </div>
   );
 };

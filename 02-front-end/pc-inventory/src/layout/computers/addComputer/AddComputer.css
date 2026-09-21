@@ -1,0 +1,35 @@
+.page_back_ground_add_computer {
+  background-color: var(--gray);
+  height: 100vh;
+}
+
+.arrow_icon {
+  vertical-align: middle;
+  border-radius: 50%;
+  font-size: 25px;
+
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.back_to_computers_button:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.general_information_form {
+  background-color: var(--white);
+  width: 70%;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.label_form {
+  display: block;
+}
+.button_submit {
+  width: 70%;
+  border-radius: 1rem 1rem 1rem 1rem;
+}

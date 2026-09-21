@@ -5,6 +5,7 @@ import { Statistics } from "./compontents/Statistics";
 import { ComputersService } from "../../services/ComputersService";
 import { SpinnerLoading } from "../../utils/SpinnerLoading";
 import { Pagination } from "../../utils/Pagination";
+import { useSearchParams } from "react-router-dom";
 
 export const ComputerPage = () => {
   const COMPUTER_PER_PAGE = 8;
@@ -16,14 +17,49 @@ export const ComputerPage = () => {
   const [totalComputer, setTotalComputer] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
 
+  const [searchParams] = useSearchParams();
+  const searchName = searchParams.get("search");
+  const filterByCore = searchParams.get("core");
+  const filterByStatus = searchParams.get("status");
+
   useEffect(() => {
     const fetchComputers = async () => {
       try {
         const pageNo = currentPage - 1;
-        const data = await ComputersService.getComputers(
-          pageNo,
-          COMPUTER_PER_PAGE,
-        );
+        let data;
+        if (searchName) {
+          data = await ComputersService.getComputerByAssetCode(
+            searchName,
+            pageNo,
+            COMPUTER_PER_PAGE,
+          );
+        } else if (filterByStatus === "out-of-service") {
+          data = await ComputersService.getComputerByStatus(
+            "OUT_OF_SERVICE",
+            pageNo,
+            COMPUTER_PER_PAGE,
+          );
+        } else if (filterByStatus === "total-pcs") {
+          data = await ComputersService.getComputers(pageNo, COMPUTER_PER_PAGE);
+        } else if (
+          filterByStatus === "maintenance" ||
+          filterByStatus === "active"
+        ) {
+          data = await ComputersService.getComputerByStatus(
+            filterByStatus.toUpperCase(),
+            pageNo,
+            COMPUTER_PER_PAGE,
+          );
+        } else if (filterByCore) {
+          data = await ComputersService.getComputerByCore(
+            filterByCore,
+            pageNo,
+            COMPUTER_PER_PAGE,
+          );
+        } else {
+          data = await ComputersService.getComputers(pageNo, COMPUTER_PER_PAGE);
+        }
+
         setComputers(data.content);
         setTotalComputer(data.page.totalElements);
         setTotalPages(data.page.totalPages);
@@ -36,7 +72,7 @@ export const ComputerPage = () => {
       }
     };
     fetchComputers();
-  }, [currentPage]);
+  }, [filterByStatus, filterByCore, searchName, currentPage]);
 
   if (isLoading) {
     return <SpinnerLoading />;
@@ -52,32 +88,43 @@ export const ComputerPage = () => {
 
   return (
     <>
-      <div className="pt-4 page_back_ground">
+      <div className="p-3 page_back_ground   d-flex flex-column ">
         <Statistics />
-        <div className="  d-flex justify-content-center flex-wrap  align-items-center gap-3 ">
-          {computers.map((computer) => (
-            <div className="card-details " key={computer.id}>
-              <CardDetails {...computer} />
+        <main className="flex-grow-1">
+          <div className="  d-flex  flex-wrap  align-items-center gap-3 ">
+            {computers.map((computer) => (
+              <div className="card-details " key={computer.id}>
+                <CardDetails {...computer} />
+              </div>
+            ))}
+          </div>
+          {lastComputerOfPage === 0 && (
+            <div className="d-flex justify-content-center  align-items-center  ">
+              <h1 className=" text-center">No Computer Found</h1>
             </div>
-          ))}
-        </div>
-        <div className="mt-2 d-flex justify-content-between align-items-center">
-          <div className="ms-3">
-            {" "}
-            <p>
+          )}
+        </main>
+        {lastComputerOfPage > 0 && (
+          <div className=" d-flex justify-content-between align-items-center mt-1">
+            <div className="ms-3">
               {" "}
-              {indexOfFirstComputer} of {lastComputerOfPage} Computers
-            </p>
+              <p>
+                {" "}
+                {indexOfFirstComputer} of {lastComputerOfPage} Computers
+              </p>
+            </div>
+            {totalPages > 1 && (
+              <Pagination
+                currentPage={currentPage}
+                paginate={setCurrentPage}
+                totalPages={totalPages}
+              />
+            )}
+            <div className="me-3">
+              <p>Total :{totalComputer} Computers</p>
+            </div>
           </div>
-          <Pagination
-            currentPage={currentPage}
-            paginate={setCurrentPage}
-            totalPages={totalPages}
-          />
-          <div className="me-3">
-            <p>Total :{totalComputer} Computers</p>
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
