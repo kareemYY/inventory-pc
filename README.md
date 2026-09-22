@@ -20,7 +20,7 @@ Phase 1 focuses on the initial inventory dashboard and read-only asset informati
 * Asset and product number display
 
 ## Screenshots
-
+> **Note:** All data shown in the screenshots is fictional.
 ![Computers](screenshots/computers.png)
 
 ![Branches](screenshots/branches.png)
