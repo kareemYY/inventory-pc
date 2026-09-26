@@ -14,7 +14,7 @@ import lombok.Setter;
 public class BranchResponse {
 
 
-    private Long branchCode;
+    private String  branchCode;
 
 
 
@@ -29,7 +29,7 @@ public class BranchResponse {
 
     private String  employees;
 
-    public BranchResponse(Long branchCode, String branchName, Governorate governorate, int computers) {
+    public BranchResponse(String branchCode, String branchName, Governorate governorate, int computers) {
         this.branchCode = branchCode;
         this.branchName = branchName;
         this.governorate = governorate;

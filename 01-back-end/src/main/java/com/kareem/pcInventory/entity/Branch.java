@@ -18,7 +18,7 @@ public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "branch_code",  unique = true, nullable = false)
-    private Long branchCode;
+    private String branchCode;
 
 
     @Column(name = "branch_name")

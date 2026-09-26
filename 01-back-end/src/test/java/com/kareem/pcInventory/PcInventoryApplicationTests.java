@@ -17,21 +17,4 @@ class PcInventoryApplicationTests {
 	private ComputerRepository computerRepository;
 
 
-	@Test
-	void contextLoads() {
-//		List<Computer> computers =computerRepository.findByProcessorContaining("Core I7");
-//Set<String> listOfCoreAndGen= new TreeSet<>();
-//		for(Computer computer : computers) {
-//
-//			if(computer.getProcessor().charAt(computer.getProcessor().indexOf('-')+1)=='1'){
-//				listOfCoreAndGen.add(computer.getProcessor().substring(0,computer.getProcessor().indexOf('-')+3));
-//			}else {
-//				listOfCoreAndGen.add(computer.getProcessor().substring(0, computer.getProcessor().indexOf('-') + 2));
-//			}
-//
-//		}
-//		listOfCoreAndGen.forEach(System.out::println);
-		//computers.forEach(System.out::println);
-	}
-
 }

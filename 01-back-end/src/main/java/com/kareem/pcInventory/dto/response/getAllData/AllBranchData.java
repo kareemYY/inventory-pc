@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AllBranchData {
 
-    private Long branchCode;
+    private String branchCode;
 
     private String branchName;
 

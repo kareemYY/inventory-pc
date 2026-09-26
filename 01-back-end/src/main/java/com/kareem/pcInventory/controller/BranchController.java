@@ -3,9 +3,11 @@ package com.kareem.pcInventory.controller;
 
 import com.kareem.pcInventory.dto.response.BranchResponse;
 import com.kareem.pcInventory.dto.response.BranchStatisticsResponse;
+import com.kareem.pcInventory.enums.Governorate;
 import com.kareem.pcInventory.service.BranchService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -28,5 +30,16 @@ public class BranchController {
     @GetMapping("/info")
     public BranchStatisticsResponse getBranchInfo(){
         return branchService.getCount();
+    }
+
+    @GetMapping("/search")
+    public List<BranchResponse> getBranchesByBranchCode(@RequestParam String   branchCode){
+        return branchService.searchBranchesByCode(branchCode);
+    }
+
+
+    @GetMapping("/governorate")
+    public List<BranchResponse> getBranchesByGovernorate(@RequestParam Governorate governorateName){
+        return branchService.getBranchesByGovernorate(governorateName);
     }
 }
