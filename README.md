@@ -18,6 +18,7 @@ Phase 1 focuses on the initial inventory dashboard and read-only asset informati
 * Computer specifications
 * Employee information and computer assignment
 * Asset and product number display
+* Branch search and governorate filtering
 
 ## Screenshots
 > **Note:** All data shown in the screenshots is fictional.
@@ -44,9 +45,11 @@ Phase 1 focuses on the initial inventory dashboard and read-only asset informati
 
 > **Note:** The Logs section is frontend-only at this stage.
 
-## Phase 2 — v0.2.0 — Upcoming
+## Version History
 
-Employee management page and improvements to the frontend and application logic.
+v0.1.1 — Improved branch search, governorate filtering, pagination, and computer details.
+
+v0.1.0 — Initial Phase 1 release with computers, branches, computer details, and inventory information.
 
 ## Project Structure
 
