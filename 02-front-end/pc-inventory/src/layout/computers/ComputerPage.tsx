@@ -5,7 +5,7 @@ import { Statistics } from "./compontents/Statistics";
 import { ComputersService } from "../../services/ComputersService";
 import { SpinnerLoading } from "../../utils/SpinnerLoading";
 import { Pagination } from "../../utils/Pagination";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export const ComputerPage = () => {
   const COMPUTER_PER_PAGE = 8;
@@ -13,21 +13,25 @@ export const ComputerPage = () => {
   const [computers, setComputers] = useState<ComputerModel[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState<string | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalComputer, setTotalComputer] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
   const searchName = searchParams.get("search");
   const filterByCore = searchParams.get("core");
   const filterByStatus = searchParams.get("status");
+  const currentPage = Number.parseInt(searchParams.get("pageNo") ?? "1", 10);
 
   useEffect(() => {
     const fetchComputers = async () => {
       try {
         const pageNo = currentPage - 1;
         let data;
-        if (searchName) {
+        if (
+          searchName &&
+          window.location.pathname.split("/")[1] === "computers"
+        ) {
           data = await ComputersService.getComputerByAssetCode(
             searchName,
             pageNo,
@@ -86,6 +90,13 @@ export const ComputerPage = () => {
     totalComputer,
   );
 
+  const handlePageChange = (pageNumber: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("pageNo", pageNumber.toString());
+
+    navigate(`/computers?${params.toString()}`);
+  };
+
   return (
     <>
       <div className="p-3 page_back_ground   d-flex flex-column ">
@@ -116,7 +127,7 @@ export const ComputerPage = () => {
             {totalPages > 1 && (
               <Pagination
                 currentPage={currentPage}
-                paginate={setCurrentPage}
+                paginate={handlePageChange}
                 totalPages={totalPages}
               />
             )}

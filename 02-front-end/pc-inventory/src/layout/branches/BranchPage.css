@@ -75,3 +75,7 @@
   top: 0;
   z-index: 2;
 }
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+}

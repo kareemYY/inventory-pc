@@ -1,14 +1,14 @@
-import optiplex2dwlmk2 from "../../../../assets/2dwlmk2.png";
-import prodesk2NZ55EC from "../../../../assets/2NZ55EC.png";
-import elitedesk4DP54Ut from "../../../../assets/4DP54Ut.webp";
-import prodesk5VP65US from "../../../../assets/5VP65US.png";
-import prodesk8HS01UC from "../../../../assets/8HS01UC.png";
-import prodeskC8T90AV from "../../../../assets/C8T90AV.webp";
-import vostro29FSH3 from "../../../../assets/H29FSH3.avif";
-import esprimoM14W from "../../../../assets/M14W.webp";
-import generic from "../../../../assets/generic.jpg";
-import type { AllBranchDetail } from "../../../../models/getAllDetails/AllBranchDetail";
-import type { AllComputerDetails } from "../../../../models/getAllDetails/AllComputerDetail";
+import optiplex2dwlmk2 from "../../../assets/2dwlmk2.png";
+import prodesk2NZ55EC from "../../../assets/2NZ55EC.png";
+import elitedesk4DP54Ut from "../../../assets/4DP54Ut.webp";
+import prodesk5VP65US from "../../../assets/5VP65US.png";
+import prodesk8HS01UC from "../../../assets/8HS01UC.png";
+import prodeskC8T90AV from "../../../assets/C8T90AV.webp";
+import vostro29FSH3 from "../../../assets/H29FSH3.avif";
+import esprimoM14W from "../../../assets/M14W.webp";
+import generic from "../../../assets/generic.jpg";
+import type { AllBranchDetail } from "../../../models/getAllDetails/AllBranchDetail";
+import type { AllComputerDetails } from "../../../models/getAllDetails/AllComputerDetail";
 
 export const MainInformation = (props: {
   allComputerDetails: AllComputerDetails | undefined;

@@ -1,17 +1,41 @@
+import { Link, useSearchParams } from "react-router-dom";
+
 export const SearchOfBranch = () => {
+  const [searchParams] = useSearchParams();
+  const governorate = searchParams.get("governorate");
+  const governrates: string[] = [
+    "CAIRO",
+    "GIZA",
+    "ALEXANDRIA",
+    "QALYUBIA",
+    "DAKAHLIA",
+    "SHARQIA",
+    "GHARBIA",
+    "MONUFIA",
+    "BEHEIRA",
+    "KAFR_EL_SHEIKH",
+    "DAMIETTA",
+    "PORT_SAID",
+    "ISMAILIA",
+    "SUEZ",
+    "NORTH_SINAI",
+    "SOUTH_SINAI",
+    "FAYOUM",
+    "BENI_SUEF",
+    "MINYA",
+    "ASSIUT",
+    "SOHAG",
+    "QENA",
+    "LUXOR",
+    "ASWAN",
+    "RED_SEA",
+    "NEW_VALLEY",
+    "MATROUH",
+  ];
+
   return (
     <div className="d-flex align-items-center justify-content-center ">
       <div className="  d-flex align-items-center justify-content-center gap-3 back_ground_search m-2 py-2 px-4 rounded shadow-md">
-        <div className=" p-2">
-          <input
-            type="text"
-            className="form-control background "
-            placeholder="Search by branch name..."
-            aria-label="PC_Number"
-            aria-describedby="basic-addon1"
-          ></input>
-        </div>
-
         <div>
           <div className="dropdown">
             <button
@@ -20,24 +44,19 @@ export const SearchOfBranch = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Governorate
+              {governorate || "governorate"}
             </button>
-            <ul className="dropdown-menu">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
+            <ul className="dropdown-menu dropdown-menu">
+              {governrates.map((governrate, index) => (
+                <li key={index}>
+                  <Link
+                    className="dropdown-item"
+                    to={`/branches?governorate=${governrate}`}
+                  >
+                    {governrate}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -72,16 +91,13 @@ export const SearchOfBranch = () => {
         </div>
 
         <div>
-          <button className="btn btn-outline-secondary d-flex btn-md shadow-md align-items-center px-3">
+          <Link
+            to={"/branches"}
+            className="btn btn-outline-secondary d-flex btn-md shadow-md align-items-center px-3"
+          >
             <span className="material-symbols-outlined fs-5">restart_alt</span>
             <span>Reset</span>
-          </button>
-        </div>
-        <div>
-          <button className="btn btn-outline-primary d-flex btn-md shadow-md align-items-center px-3">
-            <span className="material-symbols-outlined fs-5">search</span>
-            <span>Search</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

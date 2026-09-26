@@ -1,6 +1,6 @@
 import "./App.css";
 import { BranchPage } from "./layout/branches/BranchPage";
-import { ComputerDetail } from "./layout/computers/computerDetails/ComputerDetail";
+import { ComputerDetail } from "./layout/computerDetails/ComputerDetail";
 
 import { ComputerPage } from "./layout/computers/ComputerPage";
 

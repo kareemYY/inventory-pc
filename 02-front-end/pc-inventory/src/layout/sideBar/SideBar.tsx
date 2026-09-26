@@ -55,7 +55,7 @@ export const SideBar = () => {
           </li>
         </ul>
       </div>
-      <div className="pb-3">
+      <div className="pb-3 ps-2">
         <span className="text-light fs-6">Developed by </span>
         <span className="text-light text-muted">: kareem yasser </span>
       </div>

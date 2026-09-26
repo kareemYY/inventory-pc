@@ -1,4 +1,4 @@
-import type { AllEmployeeDetail } from "../../../../models/getAllDetails/AllEmployeeDetail";
+import type { AllEmployeeDetail } from "../../../models/getAllDetails/AllEmployeeDetail";
 import { InformationCard } from "./EmployeeCard";
 
 export const EmployeeInformation = (props: {

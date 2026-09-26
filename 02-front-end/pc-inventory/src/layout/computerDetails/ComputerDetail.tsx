@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import "../ComputerPage.css";
+import "../computers/ComputerPage.css";
 import { ComputerInformation } from "./compontents/ComputerInformation";
 import { EmployeeInformation } from "./compontents/EmployeeInformation";
 import { LogsComputers } from "./compontents/LogsComputer";
 import { MainInformation } from "./compontents/MainInformation";
-import type { AllComputerDetails } from "../../../models/getAllDetails/AllComputerDetail";
-import type { AllEmployeeDetail } from "../../../models/getAllDetails/AllEmployeeDetail";
-import type { AllBranchDetail } from "../../../models/getAllDetails/AllBranchDetail";
-import { ComputersService } from "../../../services/ComputersService";
-import { SpinnerLoading } from "../../../utils/SpinnerLoading";
+import type { AllComputerDetails } from "../../models/getAllDetails/AllComputerDetail";
+import type { AllEmployeeDetail } from "../../models/getAllDetails/AllEmployeeDetail";
+import type { AllBranchDetail } from "../../models/getAllDetails/AllBranchDetail";
+import { ComputersService } from "../../services/ComputersService";
+import { SpinnerLoading } from "../../utils/SpinnerLoading";
+
 export const ComputerDetail = () => {
   const [computer, setComputer] = useState<AllComputerDetails>();
   const [employee, setEmployee] = useState<AllEmployeeDetail>();

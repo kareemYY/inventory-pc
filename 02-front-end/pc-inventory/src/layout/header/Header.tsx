@@ -6,12 +6,18 @@ export const Header = () => {
   const [searchInput, setSearchInput] = useState("");
 
   const navigate = useNavigate();
+  const pathName = window.location.pathname.split("/")[1];
 
   const handleSearch = () => {
     if (!searchInput.trim()) return;
-
-    navigate(`/computers?search=${encodeURIComponent(searchInput)}`);
-    setSearchInput("");
+    if (pathName === "computers") {
+      navigate(`/computers?search=${encodeURIComponent(searchInput)}`);
+      setSearchInput("");
+    }
+    if (pathName === "branches") {
+      navigate(`/branches?search=${encodeURIComponent(searchInput)}`);
+      setSearchInput("");
+    }
   };
   return (
     <>

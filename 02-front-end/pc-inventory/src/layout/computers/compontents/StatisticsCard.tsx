@@ -14,7 +14,7 @@ export const StatisticsCard = (props: {
         className="btn  p-0  "
         onClick={() =>
           navigate(
-            `/computers?status=${props.title.toLowerCase().replace(/\s+/g, "-")}`,
+            `/computers?status=${props.title.toLowerCase().replace(/\s+/g, "-")}&pageNo=1`,
           )
         }
       >

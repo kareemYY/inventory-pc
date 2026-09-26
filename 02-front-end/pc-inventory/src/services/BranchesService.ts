@@ -21,4 +21,26 @@ export const BranchesService = {
     const branchesInfo = await response.json();
     return branchesInfo as StatisticsBranchPage;
   },
+
+  async getBranchesByCode(branchCode: string): Promise<BranchModel[]> {
+    const response = await fetch(
+      `${BASE_URL}/branches/search?branchCode=${branchCode}`,
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch branches");
+    }
+    const branches = await response.json();
+    return branches as BranchModel[];
+  },
+
+  async getBranchesByGovernorate(governorate: string): Promise<BranchModel[]> {
+    const response = await fetch(
+      `${BASE_URL}/branches/governorate?governorateName=${governorate}`,
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch branches");
+    }
+    const branches = await response.json();
+    return branches as BranchModel[];
+  },
 };

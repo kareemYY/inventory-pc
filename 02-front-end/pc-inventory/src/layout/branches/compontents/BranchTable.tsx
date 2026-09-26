@@ -2,18 +2,34 @@ import { useEffect, useState } from "react";
 import type { BranchModel } from "../../../models/BranchModel";
 import { BranchesService } from "../../../services/BranchesService";
 import { SpinnerLoading } from "../../../utils/SpinnerLoading";
+import { useSearchParams } from "react-router-dom";
 
 export const BranchTable = () => {
   const [Branches, setBranches] = useState<BranchModel[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState<string | null>(null);
 
+  const [searchParams] = useSearchParams();
+  const searchName = searchParams.get("search");
+  const governorate = searchParams.get("governorate");
+
   useEffect(() => {
     const fetchComputers = async () => {
       try {
-        let data = await BranchesService.getBranches();
-        setBranches(data);
-        setIsLoading(false);
+        let data;
+        if (searchName) {
+          data = await BranchesService.getBranchesByCode(searchName);
+          setBranches(data);
+          setIsLoading(false);
+        } else if (governorate) {
+          data = await BranchesService.getBranchesByGovernorate(governorate);
+          setBranches(data);
+          setIsLoading(false);
+        } else {
+          data = await BranchesService.getBranches();
+          setBranches(data);
+          setIsLoading(false);
+        }
       } catch (error) {
         setIsLoading(false);
         setHttpError(
@@ -23,7 +39,7 @@ export const BranchTable = () => {
     };
 
     fetchComputers();
-  }, []);
+  }, [searchName, governorate]);
   if (isLoading) {
     return <SpinnerLoading />;
   }

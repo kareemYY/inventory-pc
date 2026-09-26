@@ -1,4 +1,4 @@
-import type { AllComputerDetails } from "../../../../models/getAllDetails/AllComputerDetail";
+import type { AllComputerDetails } from "../../../models/getAllDetails/AllComputerDetail";
 import { ComputerCard } from "./ComputerCard";
 
 export const ComputerInformation = (props: {
@@ -32,7 +32,16 @@ export const ComputerInformation = (props: {
         <ComputerCard
           iconName="memory"
           name="RAM Size"
-          value={`${props.allComputerDetail?.ramSize?.toString()}  GB`}
+          value={
+            <>
+              <p className="m-0  p-0">
+                {props.allComputerDetail?.ramSize?.toString()} GB{" "}
+              </p>
+              <p className="text-muted m-0">
+                {props.allComputerDetail?.ramGeneration}
+              </p>
+            </>
+          }
         />
 
         <ComputerCard
