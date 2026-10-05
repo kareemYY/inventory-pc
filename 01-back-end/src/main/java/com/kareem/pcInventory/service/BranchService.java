@@ -41,9 +41,10 @@ public class BranchService {
         List<Branch>  branches = branchRepository.findAll();
         List<BranchResponse> branchResponses = new ArrayList<>();
         for(Branch branch:branches){
+
             BranchResponse branchResponse = new BranchResponse(branch.getBranchCode(),branch.getBranchName(),
                     branch.getGovernorate(),branch.getComputers().size());
-
+            branchResponse.setEmployeesCount(branch.getEmployees().size());
             branchResponse.setEmployees(modifyEmployee(branch.getEmployees()));
 
 

@@ -29,6 +29,8 @@ public class BranchResponse {
 
     private String  employees;
 
+    private int employeesCount;
+
     public BranchResponse(String branchCode, String branchName, Governorate governorate, int computers) {
         this.branchCode = branchCode;
         this.branchName = branchName;

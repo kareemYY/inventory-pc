@@ -24,7 +24,13 @@ public class ComputerMapping {
       computerResponse.setBranchName(computer.getBranch()==null?"No Branch" :computer.getBranch().getBranchName());
       for (Employee employee : employees) {
           if (employee.getEmployeeCode().equals(computer.getEmployeeCode())){
-              computerResponse.setEmployeeName(employee.getFirstName()+" "+employee.getLastName().substring(0,employee.getLastName().indexOf(" ")));
+              if(employee.getLastName().contains(" ")) {
+                  computerResponse.setEmployeeName(employee.getFirstName()+" "+employee.getLastName().substring(0,employee.getLastName().indexOf(" ")));
+              }else{
+                  computerResponse.setEmployeeName(employee.getFirstName()+" "+employee.getLastName());
+
+              }
+
           }
       }
 
