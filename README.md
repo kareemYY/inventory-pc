@@ -6,10 +6,12 @@ The project is being developed incrementally, with each phase adding new invento
 
 ## Current Status
 
-**Phase 1 — v0.1.0**
+**Phase 1 — v0.1.5**
 
-Phase 1 focuses on the initial inventory dashboard and read-only asset information.
+* Phase 1 focuses on the initial inventory dashboard and read-only asset information.
+* Improve mobile design, dark mode and fix backend issues.
 
+  
 ### Implemented
 
 * Computers listing
