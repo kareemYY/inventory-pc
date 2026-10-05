@@ -5,7 +5,7 @@ export const ComputerInformation = (props: {
   allComputerDetail: AllComputerDetails | undefined;
 }) => {
   return (
-    <div className="p-2 bg-light rounded-3  ">
+    <div className="p-2 border rounded-3  ">
       <div
         className="d-flex  align-items-center  rounded-3 p-2"
         style={{ backgroundColor: "var(--more-light)" }}

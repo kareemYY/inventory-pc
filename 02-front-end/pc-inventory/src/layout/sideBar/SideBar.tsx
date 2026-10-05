@@ -3,8 +3,8 @@ import "./sideBarStyle/sideBarStyle.css";
 
 export const SideBar = () => {
   return (
-    <div className="d-flex align-items-start flex-column  sideBar-props-header">
-      <div className=" mb-auto p-2  d-none d-lg-block">
+    <div className=" d-flex align-items-start flex-column   sideBar-props-header">
+      <div className=" mb-auto p-2  ">
         <div className=" main-header d-flex align-items-center justify-content-center px-1 pt-2">
           <span className="material-symbols-outlined main-icon-pc main_icon_style">
             desktop_windows
@@ -57,7 +57,7 @@ export const SideBar = () => {
       </div>
       <div className="pb-3 ps-2">
         <span className="text-light fs-6">Developed by </span>
-        <span className="text-light text-muted">: kareem yasser </span>
+        <span className=" text-info">: kareem yasser </span>
       </div>
     </div>
   );

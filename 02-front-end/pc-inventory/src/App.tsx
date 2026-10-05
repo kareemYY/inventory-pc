@@ -12,14 +12,21 @@ import { Navigate, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <>
-      {/* <div className="d-flex">
-        <SideBar />
-
-        <AddComputer />
-      </div> */}
       <div className="d-flex">
-        <SideBar />
-
+        <div className="d-none d-lg-flex">
+          <SideBar />
+        </div>
+        <div
+          className="offcanvas offcanvas-start"
+          tabIndex={-1}
+          id="sidebar"
+          aria-labelledby="offcanvasExampleLabel"
+          style={{ width: "250px" }}
+        >
+          <div className="offcanvas-body p-0" style={{ width: "250px" }}>
+            <SideBar />
+          </div>
+        </div>
         <div className="flex-fill  ">
           <Header />
           <div>

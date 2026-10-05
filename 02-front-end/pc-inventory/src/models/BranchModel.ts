@@ -3,5 +3,6 @@ export interface BranchModel {
   branchName: string;
   computers: number | null;
   employees: string | null;
+  employeesCount: number;
   governorate: string | null;
 }

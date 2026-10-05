@@ -99,7 +99,7 @@ export const ComputerPage = () => {
 
   return (
     <>
-      <div className="p-3 page_back_ground   d-flex flex-column ">
+      <div className="d-none d-lg-block  p-3 page_back_ground   d-flex flex-column ">
         <Statistics />
         <main className="flex-grow-1">
           <div className="  d-flex  flex-wrap  align-items-center gap-3 ">
@@ -133,6 +133,46 @@ export const ComputerPage = () => {
             )}
             <div className="me-3">
               <p>Total :{totalComputer} Computers</p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* mobile */}
+      <div className="d-block d-lg-none  p-3 page_back_ground   d-flex flex-column ">
+        <Statistics />
+        <main className="flex-grow-1">
+          <div className="  d-flex  flex-wrap  align-items-center gap-3 ">
+            {computers.map((computer) => (
+              <div className="card-details " key={computer.id}>
+                <CardDetails {...computer} />
+              </div>
+            ))}
+          </div>
+          {lastComputerOfPage === 0 && (
+            <div className="d-flex justify-content-center  align-items-center  ">
+              <h1 className=" text-center">No Computer Found</h1>
+            </div>
+          )}
+        </main>
+        {lastComputerOfPage > 0 && (
+          <div className=" d-flex justify-content-between align-items-center mt-1">
+            <div className="ms-3">
+              {" "}
+              <p>
+                {" "}
+                {indexOfFirstComputer} of {lastComputerOfPage}
+              </p>
+            </div>
+            {totalPages > 1 && (
+              <Pagination
+                currentPage={currentPage}
+                paginate={handlePageChange}
+                totalPages={totalPages}
+              />
+            )}
+            <div className="me-3">
+              <p>Total :{totalComputer} </p>
             </div>
           </div>
         )}

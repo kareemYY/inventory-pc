@@ -9,6 +9,7 @@ import type { AllEmployeeDetail } from "../../models/getAllDetails/AllEmployeeDe
 import type { AllBranchDetail } from "../../models/getAllDetails/AllBranchDetail";
 import { ComputersService } from "../../services/ComputersService";
 import { SpinnerLoading } from "../../utils/SpinnerLoading";
+import { ComputerDetailsMobile } from "./compontents/ComputerDetailsMoblie";
 
 export const ComputerDetail = () => {
   const [computer, setComputer] = useState<AllComputerDetails>();
@@ -45,26 +46,39 @@ export const ComputerDetail = () => {
   }
 
   return (
-    <div className=" page_back_ground p-3">
-      <MainInformation allBranchDetail={branch} allComputerDetails={computer} />
-      <div
-        className=" d-flex justify-content-center gap-5  align-items-center information_area "
-        style={{ overflow: "hidden" }}
-      >
-        <div className="col-5">
-          {" "}
-          <ComputerInformation allComputerDetail={computer} />
+    <>
+      <div className="d-none d-lg-block page_back_ground p-3">
+        <MainInformation
+          allBranchDetail={branch}
+          allComputerDetails={computer}
+        />
+        <div
+          className=" d-flex justify-content-center gap-5  align-items-center information_area "
+          style={{ overflow: "hidden" }}
+        >
+          <div className="col-5">
+            {" "}
+            <ComputerInformation allComputerDetail={computer} />
+          </div>
+          <div className="col-5">
+            <EmployeeInformation allEmployeeDetail={employee} />
+          </div>
         </div>
-        <div className="col-5">
-          <EmployeeInformation allEmployeeDetail={employee} />
+        <div
+          className="mt-2  border rounded-3 shadow-sm"
+          style={{ height: "30vh", overflow: "hidden" }}
+        >
+          <LogsComputers present={false} />
         </div>
       </div>
-      <div
-        className="mt-2 bg-light border rounded-3 shadow-sm"
-        style={{ height: "30vh", overflow: "hidden" }}
-      >
-        <LogsComputers present={false} />
+
+      <div className="d-block d-lg-none page_back_ground p-3 ">
+        <ComputerDetailsMobile
+          allBranchDetail={branch}
+          allComputerDetails={computer}
+          allEmployeeDetails={employee}
+        />
       </div>
-    </div>
+    </>
   );
 };

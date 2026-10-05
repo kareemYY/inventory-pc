@@ -35,11 +35,11 @@ export const SearchOfBranch = () => {
 
   return (
     <div className="d-flex align-items-center justify-content-center ">
-      <div className="  d-flex align-items-center justify-content-center gap-3 back_ground_search m-2 py-2 px-4 rounded shadow-md">
+      <div className="  d-flex align-items-center border justify-content-center gap-3  m-2 py-2 px-4 rounded shadow-md">
         <div>
           <div className="dropdown">
             <button
-              className="btn btn-secondary dropdown-toggle"
+              className="btn btn-outline-info dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -63,7 +63,7 @@ export const SearchOfBranch = () => {
         <div>
           <div className="dropdown">
             <button
-              className="btn btn-secondary dropdown-toggle"
+              className="btn btn-outline-info dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"

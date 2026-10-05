@@ -138,7 +138,7 @@ export const CardDetails = (props: ComputerModel) => {
       </div>
       <Link
         to={`/computers/${props.id}`}
-        className="btn button-details   d-flex justify-content-center align-items-center gap-2"
+        className="btn button-details text-info border  d-flex justify-content-center align-items-center gap-2"
         type="button"
       >
         View Full Details

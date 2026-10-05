@@ -109,7 +109,7 @@ export const Statistics = () => {
             device="card-statistics-mobile"
             icon="desktop_windows"
             value={statisticsInfo ? statisticsInfo.totalComputers : 0}
-            title="Total PCs"
+            title=""
             iconClass="computer-icon"
           />
         </div>
@@ -118,7 +118,7 @@ export const Statistics = () => {
             device="card-statistics-mobile"
             icon="check_circle"
             value={statisticsInfo ? statisticsInfo.activeComputers : 0}
-            title="Active"
+            title=""
             iconClass="checkIcon"
           />
         </div>
@@ -129,7 +129,7 @@ export const Statistics = () => {
             device="card-statistics-mobile"
             icon="build"
             value={statisticsInfo ? statisticsInfo.maintenanceComputers : 0}
-            title="Maintenance"
+            title=""
             iconClass="maintenanceIcon"
           />
         </div>
@@ -139,12 +139,12 @@ export const Statistics = () => {
             device="card-statistics-mobile"
             icon="x_circle"
             value={statisticsInfo ? statisticsInfo.outOfStockComputers : 0}
-            title="Out of service"
+            title=""
             iconClass="out_of_serviceIcon"
           />
         </div>
       </div>
-      <div className=" d-lg-none d-flex justify-content-center  align-items-center gap-2 ">
+      <div className=" d-lg-none d-flex flex-row justify-content-center gap-2 ">
         <button className="btn btn-primary d-flex btn-sm shadow-md align-items-center gap-2 px-3 m-1 .add-fillter-button">
           <span className="material-symbols-outlined fs-5">add</span>
           <span>Add Computer</span>
@@ -159,7 +159,7 @@ export const Statistics = () => {
         >
           <span>Filter by processor</span>
         </button>
-        <ul className="dropdown-menu">
+        <ul className="dropdown-menu ">
           {coreFilters.map((filter) => (
             <li key={filter}>
               <Link className="dropdown-item" to={`/computers?core=${filter}`}>

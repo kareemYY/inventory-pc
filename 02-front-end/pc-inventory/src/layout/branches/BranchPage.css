@@ -7,7 +7,7 @@
 
   color: var(--third);
   vertical-align: auto;
-  background-color: var(--white);
+
   border-radius: 50%;
   font-size: 45px;
 
@@ -37,7 +37,7 @@
 }
 
 .back_ground_search {
-  background-color: var(--white);
+  background-color: #b0b0b0;
 }
 
 .thumb-up {
